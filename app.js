@@ -240,7 +240,7 @@ function receivedPostback(event) {
         sendTextQueryToDialogFlow(sessionIds,senderID, "Snooze");
         break;
       case 'SHOW_TODAY':
-        const today = moment().format('YYYY-MM-DD');
+        const today = timezone().tz('America/Chicago').format('YYYY-MM-DD');
         let param = {};
         param.date = today.toString();
         userService.getReminders(function (e) {
